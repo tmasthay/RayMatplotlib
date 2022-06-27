@@ -1,0 +1,48 @@
+2.1-git	sfmpilsrtmgmres	hk22553/lonestar/marmousi:	hk22553@nid00192	Thu Nov 29 12:49:29 2018
+
+	d2=0.004
+	n2=2301
+	o1=0
+	d3=0.08
+	n3=116
+	o2=0
+	label1="Time"
+	data_format="native_complex"
+	o3=0
+	label2="Distance"
+	label3="Distance"
+	esize=8
+	in="/work/05108/hk22553/lonestar/harpreet/datamarm.rsf@"
+	in="/Users/rayabma/Documents/UT/Synthetics/Marmousi_2020/datamarm.rsf@"
+	unit1="s"
+	unit2="km"
+	unit3="km"
+	d1=0.004
+	n1=1001
+3.2-git	sfreal	UT/SFMATPLOTLIB/sfmatplot_v05:	rayabma@Raymonds-iMac	Mon May 23 09:59:28 2022
+
+	data_format="native_float"
+	esize=4
+	in="stdout"
+	in="stdin"
+
+3.2-git	sfwindow	UT/SFMATPLOTLIB/sfmatplot_v05:	rayabma@Raymonds-iMac	Mon May 23 09:59:28 2022
+
+	d2=0.004
+	n2=2301
+	o1=0
+	d3=0.08
+	n3=116
+	o2=0
+	label1="Time"
+	data_format="native_float"
+	o3=0
+	label2="Distance"
+	label3="Distance"
+	esize=4
+	in="/var/tmp/:marm_big.rsf@"
+	unit1="s"
+	unit2="km"
+	unit3="km"
+	d1=0.004
+	n1=1001

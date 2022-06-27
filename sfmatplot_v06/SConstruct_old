@@ -1,0 +1,262 @@
+from rsf.proj import *
+import math
+import os, sys
+
+#
+#  this combs the data
+#
+Flow('combed','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v07.py t0=64024000 out_n1=12000 niter=0
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('combed',
+     '''
+     grey scalebar=y title='combed data'
+     ''')
+#
+#  this one does 1000 iterations
+#
+#Flow('deblended_seislet_v05_1000iter','Pnode_v03_wind',
+     #'''
+     #./Mdeblend_seislet_v07.py t0=64024000 out_n1=12000 niter=1000
+      #w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     #''')
+
+##Result('deblended_seislet_v05_1000iter',
+     ##'''
+     ##grey scalebar=y title='Deblended seislet - 1000 iter'
+     ##''')
+
+#
+#  this one scales down the update by 0.35
+#
+##Flow('deblended_seislet_v05_35up_1000iter','Pnode_v03_wind',
+     ##'''
+     ##./Mdeblend_seislet_v07.py t0=64024000 out_n1=12000 niter=1000
+      ##w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ##''')
+
+##Result('deblended_seislet_v05_35up_1000iter',
+     ##'''
+     ##grey scalebar=y title='Deblended seislet 0.35 scale - 1000 iter'
+     ##''')
+
+#
+# this one scales down the lower scales of the seislet transforms
+#
+Flow('deblended_seislet_v08_100iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08.py t0=64024000 out_n1=12000 niter=100
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08_100iter',
+     '''
+     grey scalebar=y title='Deblended seislet - 100 iter'
+     ''')
+
+#Result('deblended_seislet_v05_35up_1000iter')
+#
+# this one scales up the lower scales of the seislet transforms
+#
+Flow('deblended_seislet_v08A_100iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08A.py t0=64024000 out_n1=12000 niter=100
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08A_100iter',
+     '''
+     grey scalebar=y title='Deblended seislet right scale up - 100 iter'
+     ''')
+
+#
+# this one - order = 1
+#
+Flow('deblended_seislet_v08B_100iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08B.py t0=64024000 out_n1=12000 niter=100
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08B_100iter',
+     '''
+     grey scalebar=y title='Deblended seislet, order=1 - 100 iter'
+     ''')
+
+
+#
+# this one - order = 3
+#
+Flow('deblended_seislet_v08C_100iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08C.py t0=64024000 out_n1=12000 niter=100
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08C_100iter',
+     '''
+     grey scalebar=y title='Deblended seislet, order=3 - 100 iter'
+     ''')
+
+#
+# this one - order = 3 - no wavelet scaling
+#
+Flow('deblended_seislet_v08D_100iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08D.py t0=64024000 out_n1=12000 niter=100
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08D_100iter',
+     '''
+     grey scalebar=y title='Deblended seislet, order=3, no scale - 100 iter'
+     ''')
+
+
+#
+# this one- order = 5 - no wavelet scaling
+#
+Flow('deblended_seislet_v08E_100iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08E.py t0=64024000 out_n1=12000 niter=100
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08E_100iter',
+     '''
+     grey scalebar=y title='Deblended seislet, order=5, no scale - 100 iter'
+     ''')
+
+#
+# this one- order = 5 - no wavelet scaling 300 iters
+#
+Flow('deblended_seislet_v08E_300iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08E.py t0=64024000 out_n1=12000 niter=300
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08E_300iter',
+     '''
+     grey scalebar=y title='Deblended seislet, order=5, no scale - 300 iter'
+     ''')
+
+
+#
+# this one - order = 3 - no wavelet scaling  300 iters
+#
+Flow('deblended_seislet_v08D_300iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_seislet_v08D.py t0=64024000 out_n1=12000 niter=300
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_seislet_v08D_300iter',
+     '''
+     grey scalebar=y title='Deblended seislet, order=3, no scale - 300 iter'
+     ''')
+
+
+#
+# standard Fourier domain separation
+#
+
+Flow('deblended_Fourier_v01_300iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_Fourier_shift_v03_testA.py t0=64024000 out_n1=12000 niter=300
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_Fourier_v01_300iter',
+     '''
+     grey scalebar=y title='Deblended Fourier - 300 iter'
+     ''')
+
+#
+# variable sigma  Decker separation - 1000 iters
+#
+
+Flow('deblended_Fourier_v01_1000iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_Fourier_shift_v03_testA.py t0=64024000 out_n1=12000 niter=1000
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+     ''')
+
+Result('deblended_Fourier_v01_1000iter',
+     '''
+     grey scalebar=y title='Deblended Fourier - 1000 iter'
+     ''')
+
+#
+# constant sigma Decker separation - 1000 iters
+#
+
+Flow('deblended_Decker_const_sigma_1000iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_Decker_shift_v09.py t0=64024000 out_n1=12000 niter=1000
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt 
+      sigma1=20 sigma2=20 sigma3=1
+     ''')
+
+Result('deblended_Decker_const_sigma_1000iter',
+     '''
+     grey scalebar=y title='Deblended Decker var sigma - 1000 iter'
+     ''')
+
+
+#
+# variable sigma Decker separation - 1000 iters
+#
+
+Flow('deblended_Decker_var_sigma_1000iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_Decker_shift.py t0=64024000 out_n1=12000 niter=1000
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt 
+      sigma1=20 sigma2=20 sigma3=1
+     ''')
+
+Result('deblended_Decker_var_sigma_1000iter',
+     '''
+     grey scalebar=y title='Deblended Decker constant sigma - 1000 iter'
+     ''')
+
+#
+# constant sigma Decker separation - 8000 iters
+#
+
+Flow('deblended_Decker_const_sigma_8000iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_Decker_shift_v09.py t0=64024000 out_n1=12000 niter=8000
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt
+      sigma1=20 sigma2=20 sigma3=1
+     ''')
+
+Result('deblended_Decker_const_sigma_8000iter',
+     '''
+     grey scalebar=y title='Deblended Decker var sigma - 8000 iter'
+     ''')
+
+
+
+#
+# variable sigma Decker separation - 8000 iters
+#
+
+Flow('deblended_Decker_var_sigma_8000iter','Pnode_v03_wind',
+     '''
+     ./Mdeblend_Decker_shift.py t0=64024000 out_n1=12000 niter=8000
+      w1=14000 w2=512 w3=1 sitfile=sitfile_short500.txt 
+      sigma1=20 sigma2=20 sigma3=1
+     ''')
+
+Result('deblended_Decker_var_sigma_8000iter',
+     '''
+     grey scalebar=y title='Deblended Decker constant sigma - 8000 iter'
+     ''')
+
+
+
+End()

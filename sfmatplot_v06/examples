@@ -1,0 +1,21 @@
+ sfreal < /Users/rayabma/Documents/UT/Synthetics/Marmousi_2020/datamarm.rsf | sfwindow > marm_big.rsf
+
+ sfreal < /Users/rayabma/Documents/UT/Synthetics/Marmousi_2020/datamarm.rsf | sfwindow n3=12 n2=200 n1=250 > marm4.rsf
+
+
+./Mmatplotlib2D.py < marm_vel.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y' comment='hi Mom'
+
+./Mmatplotlib2D.py < marm4.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time cmap='gray' colorbar=y transpose='y'  comment='hi Mom'
+
+./Mmatplotlib2D.py < marm_vel.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y' comment='hi Mom'
+
+
+./Mmatplotlib2D.py < marm1.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y' cmap='gray'
+
+./Mmatplotlib2D.py < marm1.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y' cmap='jet'
+
+./Mmatplotlib2D.py < marm1.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y'
+
+./Mmatplotlib2D.py < marm1.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y' pclip=98.0
+
+./Mmatplotlib2D.py < marm1.rsf imshow aspect=auto title='Marmousi shots' xlabel=space ylabel=time colorbar=y transpose='y' pclip=60.0
